@@ -14,7 +14,6 @@ words = [
 word = random.choice(words)
 guessed = []
 attempts = 6
-
 print('Bienvenido al Ahorcado!')
 print()
 
@@ -37,6 +36,12 @@ while attempts > 0:
     print(f"Letras usadas: {','.join(guessed)}")
 
     letter = input("Ingresá una letra: ")
+
+   #Funcion verificadora caracteres.
+   
+    if (len(letter) != 1) or not (letter.isalpha()):
+        print('Entrada no válida')
+        continue
 
     if letter in guessed:
         print("Ya usaste esa letra.")
