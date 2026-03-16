@@ -11,7 +11,19 @@ words = [
     "lista",
 ]
 
-word = random.choice(words)
+#Agregado de las categorias al juego
+
+diccionario = {"Entorno" : [words[0],words[1]], 
+"Datos" : [words[5],words[6],words[7]], 
+"Logica": [words[2], words[3], words[4]]
+}
+
+categorias =  ", ".join(diccionario.keys())
+
+cat = input(f'Seleccione una de las categorias existentes: {categorias} ')
+
+word = random.choice(diccionario[cat]) 
+
 guessed = []
 attempts = 6
 puntaje = 6
