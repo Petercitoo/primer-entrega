@@ -1,22 +1,8 @@
 import random
 
-words = [
-    "ide",
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-#Agregado de las categorias al juego
-
-diccionario = {"Entorno" : [words[0],words[1], words[2]], 
-"Datos" : [words[8],words[6],words[7]], 
-"Logica": [words[3], words[5], words[4]]
+diccionario = {"Entorno" : ["ide","python","programa"], 
+"Datos" : ["lista", "cadena", "entero"], 
+"Logica": ["variable", "bucle", "funcion"]
 }
 
 categorias =  ", ".join(diccionario.keys())
@@ -25,22 +11,13 @@ cat = input(f'Seleccione una de las categorias existentes: {categorias} ')
 
 palabras = random.sample(diccionario[cat], len(diccionario[cat])) 
 
-rondas = int(input(f'Elija la cantidad de rondas a jugar, hasta un maximo de 3: '))
-
-while rondas < 1 or rondas > 3:
-    rondas = int(input('Elija una cantidad de rondas validas: '))
-
-
-
-attempts = 6
 puntaje = 6
 print('Bienvenido al Ahorcado!')
 print()
 
-while rondas > 0:
-    rondas -= 1
-    word = palabras.pop(0)
+for word in palabras:
     guessed = []
+    attempts = 6
     while attempts > 0:
         # Mostrar progreso; letras adivinadas y guiones para las que faltan
         
